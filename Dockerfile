@@ -22,6 +22,7 @@ ADD root /
 # Add rastertozj filter and Epson tm t-20II drivers (2 configs)
 RUN cd /epson \
 	&& cp rastertozj /usr/lib/cups/filter/ \
+	&& chmod +x  /usr/lib/cups/filter/rastertozj \
 	&& mkdir -p /usr/share/cups/model/Epson \
 	&& cp tm-t20-NP.ppd /usr/share/cups/model/Epson/ \
 	&& cp tm-t20-orig.ppd /usr/share/cups/model/Epson/
