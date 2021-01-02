@@ -1,7 +1,7 @@
 ## Ubuntu Xenial Docker image with CUPS and additional Epson TM-T20II drivers
 It is intended to be used as an AirPrint relay on the Synology NAS, and the local Avahi will be used to advertise printers on the network.
 
-Сhanges in comparison with the [original] (https://github.com/quadportnick/docker-cups-airprint): 
+Сhanges in comparison with the [original](https://github.com/quadportnick/docker-cups-airprint):
 * updated version of Ubuntu
 * added prebuilded [rastertozj filter](https://github.com/nemik/epson-tm-t20-cups/blob/master/rastertozj) 
 * added tm-t20-orig.ppd is tm-t20ii-rastertotmt.ppd provided on Epson site modifited to use rastertozj filter
