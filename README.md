@@ -3,7 +3,7 @@ It is intended to be used as an AirPrint relay on the Synology NAS, and the loca
 
 Сhanges in comparison with the [original](https://github.com/quadportnick/docker-cups-airprint):
 * updated version of Ubuntu
-* added prebuilded [rastertozj filter](https://github.com/nemik/epson-tm-t20-cups/blob/master/rastertozj) 
+* added prebuilded rastertozj from [here](https://github.com/nemik/epson-tm-t20-cups) 
 * added tm-t20-orig.ppd is tm-t20ii-rastertotmt.ppd provided on Epson site modifited to use rastertozj filter
 * added tm-t20-NP.ppd is tm-t20-orig.ppd modifited to make possible print Nova Poshta Zebra Markings 100x100mm from iOS (without fit-to-page option)
 
