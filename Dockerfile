@@ -1,20 +1,12 @@
-FROM ubuntu:zesty
-
-# Add repos
-RUN echo 'deb http://us.archive.ubuntu.com/ubuntu/ zesty multiverse' >> /etc/apt/sources.list.d/multiverse.list && \
-	echo 'deb-src http://us.archive.ubuntu.com/ubuntu/ zesty multiverse' >> /etc/apt/sources.list.d/multiverse.list && \
-	echo 'deb http://us.archive.ubuntu.com/ubuntu/ zesty-updates multiverse' >> /etc/apt/sources.list.d/multiverse.list && \
-	echo 'deb-src http://us.archive.ubuntu.com/ubuntu/ zesty-updates multiverse' >> /etc/apt/sources.list.d/multiverse.list && \
-	echo 'deb http://archive.ubuntu.com/ubuntu/ zesty-security multiverse' >> /etc/apt/sources.list.d/multiverse.list && \
-	echo 'deb-src http://archive.ubuntu.com/ubuntu/ zesty-security multiverse' >> /etc/apt/sources.list.d/multiverse.list
+FROM ubuntu:xenial
 
 # Install the packages we need. Avahi will be included
 RUN apt-get update && apt-get install -y \
-	brother-lpr-drivers-extra brother-cups-wrapper-extra \
 	cups \
 	cups-pdf \
 	inotify-tools \
 	python-cups \
+&& apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
 # This will use port 631
@@ -26,6 +18,15 @@ VOLUME /services
 
 # Add scripts
 ADD root /
+
+# Add rastertozj filter and Epson tm t-20II drivers (2 configs)
+RUN cd /epson \
+	&& cp rastertozj /usr/lib/cups/filter/ \
+	&& mkdir -p /usr/share/cups/model/Epson \
+	&& cp tm-t20-NP.ppd /usr/share/cups/model/Epson/ \
+	&& cp tm-t20-orig.ppd /usr/share/cups/model/Epson/
+CMD ["/root/run_cups.sh"]
+
 RUN chmod +x /root/*
 CMD ["/root/run_cups.sh"]
 
@@ -37,4 +38,3 @@ RUN sed -i 's/Listen localhost:631/Listen 0.0.0.0:631/' /etc/cups/cupsd.conf && 
 	sed -i 's/<Location \/admin\/conf>/<Location \/admin\/conf>\n  Allow All/' /etc/cups/cupsd.conf && \
 	echo "ServerAlias *" >> /etc/cups/cupsd.conf && \
 	echo "DefaultEncryption Never" >> /etc/cups/cupsd.conf
-
