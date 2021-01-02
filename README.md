@@ -1,4 +1,4 @@
-#### Ubuntu Xenial Docker image with CUPS and additional Epson TM-T20II drivers
+## Ubuntu Xenial Docker image with CUPS and additional Epson TM-T20II drivers
 It is intended to be used as an AirPrint relay on the Synology NAS, and the local Avahi will be used to advertise printers on the network.
 
 Сhanges in comparison with the [original] (https://github.com/quadportnick/docker-cups-airprint): 
@@ -9,33 +9,27 @@ It is intended to be used as an AirPrint relay on the Synology NAS, and the loca
 
 This is also a reason to dive deeper into GitHub / Docker / CUPS, so why not? Hope this is helpful to someone.
 
-## Prereqs
+### Prereqs
 * No other printers should be shared under Control Panel>External Devices>Printer so that the DSM's CUPS is not running. 
 * `Enable Bonjour service discovery` needs to be marked under Control Panel>Network>DSM Settings 
 
-## Configuration
+### Configuration
 
-### Volumes:
+#### Volumes:
 * `/config`: where the persistent printer configs will be stored
 * `/services`: where the Avahi service files will be generated
 
-### Variables:
+#### Variables:
 * `CUPSADMIN`: the CUPS admin user you want created
 * `CUPSPASSWORD`: the password for the CUPS admin user
 
-### Ports:
+#### Ports:
 * `631`: the TCP port for CUPS must be exposed
 
-## Using
+### Using
 CUPS will be configurable at http://[diskstation]:631 using the CUPSADMIN/CUPSPASSWORD when you do something administrative.
 
-If the `/services` volume isn't mapping to `/etc/avahi/services` then you will have to manually copy the .service files to that path at the command line.
-
-## Notes
-* CUPS doesn't write out `printers.conf` immediately when making changes even though they're live in CUPS. Therefore it will take a few moments before the services files update
-* Don't stop the container immediately if you intend to have a persistent configuration for this same reason
-
-##CLI mode running
+### CLI mode running
 ```
 docker run -d \
   --name=cups \
@@ -46,3 +40,9 @@ docker run -d \
   -e CUPSPASSWORD="admin" \
   xyzroe/cups-airprint-epson-tm
 ```
+
+### Notes
+* If the `/services` volume isn't mapping to `/etc/avahi/services` then you will have to manually copy the .service files to that path at the command line.
+* CUPS doesn't write out `printers.conf` immediately when making changes even though they're live in CUPS. Therefore it will take a few moments before the services files update
+* Don't stop the container immediately if you intend to have a persistent configuration for this same reason
+
