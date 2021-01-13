@@ -33,6 +33,7 @@ CUPS will be configurable at http://[diskstation]:631 using the CUPSADMIN/CUPSPA
 ```
 docker run -d \
   --name=cups \
+  --restart unless-stopped \
   -p 631:631 \
   -v /volume/docker/cups/config:/config \
   -v /etc/avahi/services:/services \
