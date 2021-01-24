@@ -35,6 +35,7 @@
 *DefaultPageSize:RP80x297
 *PageSize RP80x297/Roll paper 80 x 297 mm: "<</PageSize[204 841.8]/ImagingBBox null>>setpagedevice"
 *PageSize RP58x297/Roll paper 58 x 297 mm: "<</PageSize[141.7 841.8]/ImagingBBox null>>setpagedevice"
+*PageSize RP80x80/Roll paper 80 x 80 mm: "<</PageSize[204 204]/ImagingBBox null>>setpagedevice"
 *CloseUI: *PageSize
 
 *OpenUI *PageRegion: PickOne
@@ -42,15 +43,18 @@
 *DefaultPageRegion:RP80x297
 *PageRegion RP80x297/Roll paper 80 x 297 mm: "<</PageSize[204 841.8]/ImagingBBox null>>setpagedevice"
 *PageRegion RP58x297/Roll paper 58 x 297 mm: "<</PageSize[141.7 841.8]/ImagingBBox null>>setpagedevice"
+*PageRegion RP80x80/Roll paper 80 x 80 mm: "<</PageSize[204 204]/ImagingBBox null>>setpagedevice"
 *CloseUI: *PageRegion
 
 *DefaultImageableArea: RP80x297
 *ImageableArea RP80x297/Roll paper 80 x 297 mm: "0 0 204 841.8"
 *ImageableArea RP58x297/Roll paper 58 x 297 mm: "0 0 141.7 841.8"
+*ImageableArea RP80x80/Roll paper 80 x 80 mm: "0 0 204 204"
 
 *DefaultPaperDimension: RP80x297
 *PaperDimension RP80x297/Roll paper 80 x 297 mm: "204 841.8"
 *PaperDimension RP58x297/Roll paper 58 x 297 mm: "141.7 841.8"
+*PaperDimension RP80x80/Roll paper 80 x 80 mm: "204 204"
 
 *%Custom page size settings.
 *MaxMediaWidth: "211.1"
