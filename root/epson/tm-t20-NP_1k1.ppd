@@ -10,9 +10,9 @@
 *PCFileName: "TM-T20II.PPD"
 *Manufacturer: "EPSON"
 *Product: "(ThermalPrinter)"
-*ModelName:"EPSON TM-T20II"
-*ShortNickName:"TM-T20II"
-*NickName: "EPSON TM-T20II"
+*ModelName:"EPSON TM-T20II 150DPI 80x80mm"
+*ShortNickName:"TM-T20II_150DPI"
+*NickName: "EPSON TM-T20II 150DPI 80x80mm"
 *PSVersion: "(3010.000) 0"
 *LanguageLevel: "3"
 *ColorDevice: False
@@ -32,33 +32,29 @@
 *%Page size settings.
 *OpenUI *PageSize/Media Size: PickOne
 *OrderDependency: 11 AnySetup *PageSize
-*DefaultPageSize:RP80x297
-*PageSize RP80x297/Roll paper 80 x 297 mm: "<</PageSize[204 841.8]/ImagingBBox null>>setpagedevice"
-*PageSize RP58x297/Roll paper 58 x 297 mm: "<</PageSize[141.7 841.8]/ImagingBBox null>>setpagedevice"
+*DefaultPageSize:RP80x80
+*PageSize RP80x80/Roll paper 80 x 80 mm: "<</PageSize[204 204]/ImagingBBox null>>setpagedevice"
 *CloseUI: *PageSize
 
 *OpenUI *PageRegion: PickOne
 *OrderDependency: 11 AnySetup *PageRegion
-*DefaultPageRegion:RP80x297
-*PageRegion RP80x297/Roll paper 80 x 297 mm: "<</PageSize[204 841.8]/ImagingBBox null>>setpagedevice"
-*PageRegion RP58x297/Roll paper 58 x 297 mm: "<</PageSize[141.7 841.8]/ImagingBBox null>>setpagedevice"
+*DefaultPageRegion:RP80x80
+*PageRegion RP80x80/Roll paper 80 x 80 mm: "<</PageSize[204 204]/ImagingBBox null>>setpagedevice"
 *CloseUI: *PageRegion
 
-*DefaultImageableArea: RP80x297
-*ImageableArea RP80x297/Roll paper 80 x 297 mm: "0 0 204 841.8"
-*ImageableArea RP58x297/Roll paper 58 x 297 mm: "0 0 141.7 841.8"
+*DefaultImageableArea: RP80x80
+*ImageableArea RP80x80/Roll paper 80 x 80 mm: "0 0 204 204"
 
-*DefaultPaperDimension: RP80x297
-*PaperDimension RP80x297/Roll paper 80 x 297 mm: "204 841.8"
-*PaperDimension RP58x297/Roll paper 58 x 297 mm: "141.7 841.8"
+*DefaultPaperDimension: RP80x80
+*PaperDimension RP80x80/Roll paper 80 x 80 mm: "204 204"
 
 *%Custom page size settings.
-*MaxMediaWidth: "211.1"
-*MaxMediaHeight: "5669.2"
+*MaxMediaWidth: "150"
+*MaxMediaHeight: "150"
 *NonUIOrderDependency: 100 AnySetup *CustomPageSize
 *CustomPageSize True: "pop pop pop <</PageSize [ 5 -2 roll ]/ImagingBBox null>>setpagedevice"
-*ParamCustomPageSize Width: 1 points 72 211.1
-*ParamCustomPageSize Height: 2 points 72 5669.2
+*ParamCustomPageSize Width: 1 points 72 150
+*ParamCustomPageSize Height: 2 points 72 150
 *ParamCustomPageSize WidthOffset:  3 points 0 0
 *ParamCustomPageSize HeightOffset: 4 points 0 0
 *ParamCustomPageSize Orientation:  5 int 0 0
