@@ -26,6 +26,7 @@ RUN cd /epson \
 	&& mkdir -p /usr/share/cups/model/Epson \
 	&& cp tm-t20-NP.ppd /usr/share/cups/model/Epson/ \
 	&& cp tm-t20-TG.ppd /usr/share/cups/model/Epson/ \
+ 	&& cp tm-ba-thermal-rastertotmt.ppd /usr/share/cups/model/Epson/ \
 	&& cp tm-t20-orig.ppd /usr/share/cups/model/Epson/
 CMD ["/root/run_cups.sh"]
 
